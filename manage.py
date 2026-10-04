@@ -1,6 +1,7 @@
 import os
-import environ
 import sys
+
+import environ
 
 from config.settings.base import BASE_DIR
 
