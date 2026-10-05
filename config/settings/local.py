@@ -1,6 +1,5 @@
 import environ
 from .base import *
-from config.settings.base import BASE_DIR
 
 env = environ.Env(
     DEBUG=(bool, False),
