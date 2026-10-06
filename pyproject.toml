@@ -1,0 +1,54 @@
+[project]
+name = "e-commerce-backend"
+version = "0.1.0"
+description = "E-commerce API"
+readme = "README.md"
+authors = [
+    { name = "Komronbek", email = "komronbekx1@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "django>=6.1.1",
+    "django-environ>=0.14.0",
+    "django-filter>=26.2",
+    "djangorestframework>=3.18.1",
+    "djangorestframework-simplejwt>=5.5.1",
+    "drf-spectacular>=0.30.0",
+    "psycopg[binary]>=3.3.6",
+]
+
+[dependency-groups]
+dev = [
+    "djangorestframework-stubs>=3.18.1",
+    "django-stubs>=6.1.1",
+    "mypy>=2.4.0",
+    "ruff>=0.16.10",
+]
+
+
+[tool.ruff]
+line-length = 90
+extend-exclude = ["**/migrations/*"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "DJ"]
+
+
+[tool.mypy]
+plugins = ["mypy_django_plugin.main", "mypy_drf_plugin.main"]
+strict_optional = true
+warn_unused_ignores = true
+exclude = ["migrations/"]
+
+[[tool.mypy.overrides]]
+module = [
+    "environ"
+]
+ignore_missing_imports = true
+
+[tool.django-stubs]
+django_settings_module = "config.settings.local"
+
+
+[tool.uv]
+package = false
